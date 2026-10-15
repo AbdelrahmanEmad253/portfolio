@@ -3,7 +3,7 @@ import type { Project } from "@/data/projects";
 
 const kindIcon: Record<Project["kind"], LucideIcon> = {
   "Production · NDA": Briefcase,
-  "Side project": Lightbulb,
+  "Team project": Lightbulb,
   Research: FlaskConical,
   Personal: Heart,
 };

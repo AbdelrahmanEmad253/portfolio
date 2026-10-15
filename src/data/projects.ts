@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   title: string;
-  kind: "Production · NDA" | "Side project" | "Research" | "Personal";
+  kind: "Production · NDA" | "Team project" | "Research" | "Personal";
   when: string;
   summary: string;
   role: string;
@@ -50,7 +50,7 @@ export const projects: Project[] = [
   {
     slug: "learnova",
     title: "LearNova: AI Adaptive Learning Platform",
-    kind: "Side project",
+    kind: "Team project",
     when: "Jun 2025 – Jun 2026",
     summary:
       "A psychometric and cognitive diagnostic routes each learner into a specialization, then content format, difficulty and pacing adapt to how they engage. An AI mentor tracks sentiment and cognitive load to flag burnout early.",

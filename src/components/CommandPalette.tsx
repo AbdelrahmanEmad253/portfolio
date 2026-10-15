@@ -43,12 +43,18 @@ export function CommandPalette() {
   const run = (c?: Cmd) => { if (!c) return; close(); c.run(); };
 
   useEffect(() => {
-    let k = 0;
+    document.getElementById(`cmd-${sel}`)?.scrollIntoView({ block: "nearest" });
+  }, [sel]);
+
+  useEffect(() => {
+    let buf: string[] = [];
     const onKey = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); open(); return; }
+      const key = e.key?.toLowerCase();
+      if (!key) return;
+      if ((e.ctrlKey || e.metaKey) && key === "k") { e.preventDefault(); open(); return; }
       if (dlg.current?.open) return;
-      k = e.key.toLowerCase() === KONAMI[k].toLowerCase() ? k + 1 : e.key === KONAMI[0] ? 1 : 0;
-      if (k === KONAMI.length) { k = 0; toggleParty(); }
+      buf = [...buf, key].slice(-KONAMI.length);
+      if (buf.join("|") === KONAMI.map((x) => x.toLowerCase()).join("|")) { buf = []; toggleParty(); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -56,7 +62,7 @@ export function CommandPalette() {
 
   return (
     <>
-      <button type="button" onClick={open} aria-label="Open command palette" className="btn btn-ghost !px-3 !py-1.5 text-xs">
+      <button type="button" onClick={open} aria-label="Open command palette (Ctrl K)" aria-keyshortcuts="Control+K Meta+K" className="btn btn-ghost !px-3 !py-1.5 text-xs">
         <Command size={14} aria-hidden /> <span>Ctrl K</span>
       </button>
       <dialog

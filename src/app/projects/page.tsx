@@ -7,7 +7,7 @@ export const metadata = { title: "Projects" };
 export default function Projects() {
   return (
     <>
-      <PageHead title="Work I've built" sub="Production agents and pipelines (under NDA, so described without names), a side project, and personal and teaching work." />
+      <PageHead title="Work I've built" sub="Production agents and pipelines (under NDA, so described without names), a team project, and research and personal work." />
       <section className="mx-auto max-w-6xl px-4">
         <ProjectGrid items={projects} full filters />
       </section>
