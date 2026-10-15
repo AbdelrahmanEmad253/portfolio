@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   title: string;
-  kind: "Production · NDA" | "Graduation project" | "Research · in progress" | "Personal" | "Teaching case" | "Internship";
+  kind: "Production · NDA" | "Side project" | "Research" | "Personal";
   when: string;
   summary: string;
   role: string;
@@ -50,7 +50,7 @@ export const projects: Project[] = [
   {
     slug: "learnova",
     title: "LearNova: AI Adaptive Learning Platform",
-    kind: "Graduation project",
+    kind: "Side project",
     when: "Jun 2025 – Jun 2026",
     summary:
       "A psychometric and cognitive diagnostic routes each learner into a specialization, then content format, difficulty and pacing adapt to how they engage. An AI mentor tracks sentiment and cognitive load to flag burnout early.",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
   {
     slug: "trigeminal",
     title: "Trigeminal Neuralgia: LLM Extraction + ML",
-    kind: "Research · in progress",
+    kind: "Research",
     when: "2026",
     summary:
       "There's no public labeled dataset of trigeminal neuralgia patients, so we're building one. An LLM pipeline turns PubMed case reports into structured data, and classical ML then predicts TN subtype and treatment outcome.",

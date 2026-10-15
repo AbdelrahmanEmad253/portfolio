@@ -1,5 +1,5 @@
 import { projects, consulting } from "@/data/projects";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectGrid } from "@/components/ProjectGrid";
 import { PageHead } from "@/components/Shell";
 
 export const metadata = { title: "Projects" };
@@ -7,9 +7,9 @@ export const metadata = { title: "Projects" };
 export default function Projects() {
   return (
     <>
-      <PageHead eyebrow="Projects" title="Work I've built" sub="Production agents and pipelines (under NDA, so described without names), my graduation project, and personal and teaching work." />
-      <section className="mx-auto grid max-w-6xl gap-4 px-4 md:grid-cols-2">
-        {projects.map((p) => <ProjectCard key={p.slug} p={p} full />)}
+      <PageHead title="Work I've built" sub="Production agents and pipelines (under NDA, so described without names), a side project, and personal and teaching work." />
+      <section className="mx-auto max-w-6xl px-4">
+        <ProjectGrid items={projects} full filters />
       </section>
       <section className="mx-auto max-w-6xl px-4 pt-12">
         <div className="panel p-6">
