@@ -1,101 +1,76 @@
-import Image from "next/image";
+import Link from "next/link";
+import { site, roles, pillars } from "@/data/site";
+import { projects } from "@/data/projects";
+import { ProjectCard } from "@/components/ProjectCard";
 
 export default function Home() {
+  const featured = projects.filter((p) => p.featured);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <section className="mx-auto max-w-6xl px-4 pt-20 pb-12">
+        <p className="h-eyebrow">{site.role} · Business background · Educator</p>
+        <h1 className="mt-4 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl">
+          I build AI agents that <span className="accent">understand the business.</span>
+        </h1>
+        <p className="muted mt-6 max-w-2xl text-lg leading-relaxed">{site.intro}</p>
+        <p className="muted mt-2 text-sm">{site.location}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/projects" className="btn btn-primary">See my work</Link>
+          <a href={site.resumeAI} className="btn btn-ghost">Resume (AI Eng)</a>
+          <a href={site.resumeDS} className="btn btn-ghost">Resume (Data Sci)</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-3">
+        {roles.map((r) => (
+          <div key={r.org} className="panel p-5">
+            <p className="text-xs muted">{r.when}</p>
+            <p className="mt-1 font-bold">{r.org}</p>
+            <p className="accent text-sm">{r.title}</p>
+            <p className="muted mt-3 text-sm">{r.line}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-20">
+        <p className="h-eyebrow">How I work</p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+          {pillars.map((p, i) => (
+            <div key={p.title} className="panel p-6">
+              <p className="font-mono text-sm accent">0{i + 1}</p>
+              <h3 className="mt-2 text-lg font-bold">{p.title}</h3>
+              <p className="muted mt-2 text-sm leading-relaxed">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-20">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="h-eyebrow">Selected work</p>
+            <h2 className="mt-2 text-3xl font-bold">Featured projects</h2>
+          </div>
+          <Link href="/projects" className="link text-sm">All projects →</Link>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {featured.map((p) => <ProjectCard key={p.slug} p={p} />)}
+        </div>
+        <p className="muted mt-3 text-xs">Production work is under NDA, so it&apos;s described without client or product names.</p>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-4 px-4 pt-20 md:grid-cols-2">
+        <Link href="/roadmap" className="panel block p-8 hover:border-[var(--accent)]">
+          <p className="h-eyebrow">For engineers</p>
+          <h3 className="mt-3 text-2xl font-bold">AI Engineer Roadmap →</h3>
+          <p className="muted mt-2 text-sm">Software engineering first, then data, ML, LLMs and agents, and how to stay current without drowning.</p>
+        </Link>
+        <Link href="/founders" className="panel block p-8 hover:border-[var(--accent2)]">
+          <p className="h-eyebrow" style={{ color: "var(--accent2)" }}>For founders & CEOs</p>
+          <h3 className="mt-3 text-2xl font-bold">Founders Roadmap →</h3>
+          <p className="muted mt-2 text-sm">The 14 corners of business, 50+ books, and an AI lens on each: what to automate, what to measure, what to keep human.</p>
+        </Link>
+      </section>
+    </>
   );
 }
