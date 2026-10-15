@@ -57,14 +57,15 @@ export function CommandPalette() {
       if (buf.join("|") === KONAMI.map((x) => x.toLowerCase()).join("|")) { buf = []; toggleParty(); }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("open-palette", open);
+    return () => { window.removeEventListener("keydown", onKey); window.removeEventListener("open-palette", open); };
   }, [open]);
 
   return (
     <>
-      <button type="button" onClick={open} aria-label="Open command palette (Ctrl K)" aria-keyshortcuts="Control+K Meta+K" className="btn btn-ghost !px-3 !py-1.5 text-xs">
+      <span className="hidden md:inline-flex"><button type="button" onClick={open} aria-label="Open command palette (Ctrl K)" aria-keyshortcuts="Control+K Meta+K" className="btn btn-ghost !px-3 !py-1.5 text-xs">
         <Command size={14} aria-hidden /> <span>Ctrl K</span>
-      </button>
+      </button></span>
       <dialog
         ref={dlg}
         aria-label="Command palette"

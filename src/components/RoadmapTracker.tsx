@@ -47,7 +47,7 @@ export function RoadmapTracker({ phases, stats }: { phases: Phase[]; stats: Reac
             <p className="font-bold">Your progress</p>
             <p className="muted">{mounted ? n : "–"} of {total} topics checked</p>
             <p className="muted text-xs">Saved in this browser only.</p>
-            <button type="button" onClick={() => save(new Set())} disabled={!mounted || n === 0} className="btn btn-ghost mt-2 !px-3 !py-1 text-xs disabled:opacity-50">
+            <button type="button" onClick={() => { if (confirm("Clear all progress?")) save(new Set()); }} disabled={!mounted || n === 0} className="btn btn-ghost mt-2 !px-3 !py-1 text-xs disabled:opacity-50">
               <RotateCcw size={12} aria-hidden />Reset progress
             </button>
           </div>

@@ -4,23 +4,25 @@ import type { ReactNode } from "react";
 import { nav, site } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
 import { CommandPalette } from "./CommandPalette";
+import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-20 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
+      <div className="relative mx-auto flex max-w-6xl items-center gap-3 px-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-2 font-head font-bold" aria-label={`${site.name}, home`}>
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--accent)] text-sm text-[var(--on-accent)]">{site.short}</span>
           <span className="hidden lg:inline">{site.name}</span>
         </Link>
-        <nav aria-label="Main" className="muted flex min-w-0 flex-1 items-center gap-5 overflow-x-auto whitespace-nowrap px-1 py-1 text-sm [scrollbar-width:none]">
+        <nav aria-label="Main" className="muted hidden min-w-0 flex-1 items-center gap-5 whitespace-nowrap px-1 py-1 text-sm md:flex">
           {nav.map((n) => (
             <Link key={n.href} href={n.href} className="hover:text-[var(--fg)]">{n.label}</Link>
           ))}
           <a href={site.resumeAI} className="btn btn-ghost !px-3 !py-1.5 text-[var(--fg)]"><FileText size={14} aria-hidden />Resume</a>
         </nav>
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-0">
           <CommandPalette />
+          <MobileMenu />
           <ThemeToggle />
         </div>
       </div>

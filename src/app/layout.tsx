@@ -27,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <Effects />
+        <div id="toast" className="toast" role="status" aria-live="polite" />
       </body>
     </html>
   );

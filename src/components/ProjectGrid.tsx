@@ -3,8 +3,7 @@ import { useState, type PointerEvent, type ReactNode } from "react";
 import { ProjectCard } from "./ProjectCard";
 import type { Project } from "@/data/projects";
 
-const canTilt = () =>
-  matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canTilt = () => matchMedia("(hover: hover) and (pointer: fine)").matches; // spotlight needs hover; tilt is gated in CSS
 
 function onMove(e: PointerEvent<HTMLDivElement>) {
   if (!canTilt()) return;

@@ -27,6 +27,7 @@ export function Bookshelf({ books, phases }: { books: ShelfBook[]; phases: { n: 
         </label>
       </div>
       <p role="status" className="muted mt-3 text-sm">{shown.length} of {books.length} books</p>
+      {!shown.length && <p className="muted mt-6">No books match. Try another word.</p>}
       <ul className="mt-4 flex flex-wrap items-end gap-2 border-b-8 border-[var(--line)] pb-0">
         {shown.map((b) => (
           <li key={`${b.phase}|${b.title}`} className="spine px-1.5 py-3 text-xs"

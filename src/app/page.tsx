@@ -85,9 +85,15 @@ export default function Home() {
           <ProjectGrid
             items={featured} bento
             extra={
-              <Link href="/projects" className="panel flex flex-col justify-between gap-6 bg-[var(--accent)] p-6 text-[var(--on-accent)] md:col-span-3 [&]:border-transparent">
-                <span className="text-2xl font-bold">All projects</span>
-                <ArrowUpRight size={28} aria-hidden />
+              <Link href="/projects" className="tile-accent flex flex-col justify-between gap-6 p-6 md:col-span-3">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="stat text-5xl font-bold">{projects.length} projects</span>
+                  <ArrowUpRight size={28} aria-hidden />
+                </div>
+                <div>
+                  <p className="text-lg font-semibold">See all projects</p>
+                  <div className="mt-3 flex flex-wrap gap-2">{stack.slice(0, 5).map((s) => <span key={s} className="chip">{s}</span>)}</div>
+                </div>
               </Link>
             }
           />
