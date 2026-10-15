@@ -255,7 +255,7 @@ export const aiRoadmap: Phase[] = [
           "Write about what you built, not what you read",
           "Domain beats generic: pick an industry (HR, legal, retail…)",
         ],
-        resources: [{ label: "LMArena: compare models yourself", url: "https://lmarena.ai/" }],
+        resources: [{ label: "Arena: compare models yourself", url: "https://arena.ai/" }],
       },
     ],
     milestone: "A weekly 2-hour routine: 30 min skim, 60 min deep read or reproduce, 30 min write a post or note.",
