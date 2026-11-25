@@ -4,7 +4,7 @@ export const site = {
   role: "AI Engineer",
   tagline: "I build AI agents that understand the business.",
   intro:
-    "AI engineer with a business-strategy background. I build tool-using LLM agents and the data pipelines behind them, co-founded a KSA strategy consultancy, and teach Data & AI to working professionals.",
+    "AI engineer with a business-strategy background. I build tool-using LLM agents and the data pipelines behind them, co-founded a KSA strategy consultancy, and have taught Data & AI to 60+ working professionals.",
   location: "Alexandria, Egypt · working with KSA / MENA",
   email: "abdelrahmanemad2530@gmail.com",
   linkedin: "https://www.linkedin.com/in/abdelrahmanelsheriff",
@@ -25,8 +25,8 @@ export const roles = [
   {
     org: "Cycls",
     title: "AI Applied Engineer Intern",
-    when: "2026 – Present",
-    line: "Co-building production LLM agents for the Saudi market (HR and marketing). I solely own one agent's data pipeline.",
+    when: "Jul – Nov 2026",
+    line: "Built production LLM agents for the Saudi market (most of the HR agent; co-built the marketing agent). Solely built one agent's data pipeline.",
   },
   {
     org: "BB Strategy",
@@ -37,8 +37,8 @@ export const roles = [
   {
     org: "Arabian Academy",
     title: "Data & AI Instructor",
-    when: "2026 – Present",
-    line: "Teaching Data Analysis, Data Science and AI Engineering tracks to working professionals.",
+    when: "Feb – Nov 2026",
+    line: "Taught Data Analysis, Data Science and AI Engineering tracks to working professionals.",
   },
 ];
 
