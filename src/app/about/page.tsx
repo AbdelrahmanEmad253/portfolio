@@ -10,7 +10,7 @@ const story: [string, string, LucideIcon][] = [
   ["The books", "Before I had business experience, I had a reading list: 40+ books across 14 corners of business, from strategy to finance to HR. They gave me the language of business before I sat in a business room.", BookOpen],
   ["The data years", "Internships in ML and data science, then LearNova, where I led a team of four as Scrum Master and owned all of the data work and the documentation.", Database],
   ["The business", "I co-founded BB Strategy (Build Bold), a strategy consultancy for KSA, where I do pricing, market entry and growth. It taught me to ask what a wrong answer costs before I pick a model.", Briefcase],
-  ["The AI engineering", "Today I co-build production LLM agents for the Saudi market and build the data pipelines they run on. I also teach Data and AI to working professionals.", Bot],
+  ["The AI engineering", "At a Saudi AI startup I built production LLM agents and the data pipelines they run on, and I taught Data and AI to 60+ working professionals.", Bot],
 ];
 
 export default function About() {
