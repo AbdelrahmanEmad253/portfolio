@@ -19,7 +19,7 @@ export const projects: Project[] = [
     when: "2026",
     summary:
       "A conversational HR agent covering the employee lifecycle, from workforce planning and hiring to offboarding, built for Saudi labor rules.",
-    role: "Co-builder. I wrote most of it, across the architecture, tools, business rules and tests.",
+    role: "Main builder. I wrote most of it, across the architecture, tools, business rules and tests.",
     points: [
       "Large tool catalog grouped by HR department behind a single agent entrypoint",
       "Human approval before any email is sent or money is committed; never invents candidate data",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     when: "2026",
     summary:
       "The data layer behind a MENA marketing agent: public market size, trends, news, events, tenders and points-of-interest data collected, validated and served to the agent.",
-    role: "Sole builder of the pipeline; co-builder of the agent itself.",
+    role: "Sole builder of the pipeline; co-built the agent itself.",
     points: [
       "One standalone collector per source, organized by marketing function (strategy, brand, content, paid, web, analytics)",
       "Multi-million-row Parquet store queried by the agent through DuckDB",
